@@ -1,0 +1,40 @@
+@import url('http://fonts.cdnfonts.com/css/laca-text');
+
+.root {
+    composes: root_highPriority from '@magento/venia-ui/lib/components/Button/button.module.css';
+    composes: min-w-[6.125rem] from global;
+    composes: -ml-2xs from global;
+    composes: px-2xs from global;
+    composes: py-0 from global;
+    composes: self-center from global;
+    min-height: 2rem;
+    composes: sm_min-w-[8rem] from global;
+    border-radius: 4px;
+    border-color: transparent;
+    border-width: 0;
+    background: linear-gradient(90deg,#36ccb5,#30bea9);
+    height: 56px;
+    transition: filter .2s ease-out;
+    color: #fff;
+    font-family: 'Laca Text', sans-serif;
+}
+
+root:hover {
+    color: #fff;
+    filter: saturate(150%);
+}
+
+root:focus {
+    box-shadow: none;
+}
+
+.icon {
+    composes: inline from global;
+    composes: stroke-white from global;
+}
+
+.text {
+    composes: hidden from global;
+
+    composes: xs_inline from global;
+}

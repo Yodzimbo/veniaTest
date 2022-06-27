@@ -1,0 +1,140 @@
+.root {
+    composes: content-start from global;
+    composes: grid from global;
+    composes: gap-y-2xs from global;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    position: relative;
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 308px;
+    height: calc(100% - 30px);
+    color: #242424;
+}
+
+.root:after {
+    content: "";
+    position: absolute;
+    display: block;
+    border-radius: 8px;
+    pointer-events: none;
+}
+.root:hover:after {
+    top: -16px;
+    right: -16px;
+    bottom: -14px;
+    left: -16px;
+    transition: box-shadow .24s ease;
+    box-shadow: 1px 1px 12px #ddd;
+    z-index: 9;
+}
+
+.root:hover .image {
+    display: none;
+}
+
+.root:hover .imageHover {
+    display: block;
+}
+
+
+.images {
+    composes: grid from global;
+    grid-template-areas: 'main';
+    position: relative;
+}
+
+.imageContainer {
+    grid-area: main;
+}
+
+.image {
+    composes: block from global;
+    composes: h-full from global;
+    composes: object-contain from global;
+    composes: w-full from global;
+    transition: opacity 512ms ease-out;
+}
+
+.imageHover {
+    composes: h-full from global;
+    composes: object-contain from global;
+    composes: w-full from global;
+    transition: opacity 512ms ease-out;
+    display: none;
+}
+
+.imageLoaded {
+    composes: loaded from '@magento/venia-ui/lib/components/Image/image.module.css';
+
+    composes: opacity-100 from global;
+}
+
+.imageNotLoaded {
+    composes: notLoaded from '@magento/venia-ui/lib/components/Image/image.module.css';
+
+    composes: opacity-0 from global;
+}
+
+.imagePlaceholder {
+    composes: image;
+
+    composes: bg-subtle from global;
+}
+
+.actionsContainer {
+    composes: gap-x-xs from global;
+    composes: grid from global;
+    composes: pl-2xs from global;
+    grid-template-columns: auto auto;
+}
+
+/* TODO @TW: cannot compose */
+.actionsContainer:empty {
+    display: none;
+}
+
+.name {
+    font-size: 16px;
+    line-height: 1.32;
+    font-weight: 400;
+    color: #242424;
+    word-wrap: break-word;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    margin-bottom: auto;
+}
+
+.price {
+    composes: text-colorDefault from global;
+    min-height: 1rem;
+}
+
+.specialPrice {
+    color: red;
+}
+
+.finalPrice {
+    text-decoration: line-through;
+}
+
+.unavailableContainer {
+    composes: bg-subtle from global;
+    composes: gap-x-2xs from global;
+    composes: grid from global;
+    composes: grid-flow-col from global;
+    composes: italic from global;
+    composes: items-center from global;
+    composes: justify-start from global;
+    composes: p-3 from global;
+    composes: text-sm from global;
+    composes: text-subtle from global;
+    composes: w-full from global;
+}
+
+.root select {
+    height: 56px;
+}
